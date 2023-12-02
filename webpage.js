@@ -18,13 +18,18 @@ const top_k = 50;
 const truncate = 1024;
 const max_new_tokens = 2000;
 
-async function launch(const prompt, const token)
+const hf = null;
+
+document.getElementById('construct_HfInference').addEventListener('click', function()
 {
-  const hf = new HfInference(token);
+  hf = new HfInference(document.getElementById('token').value.trim() || undefined);
+})
 
-  result = '';
-
+document.getElementById('launch').addEventListener('click', function()
+{
+  result = document.getElementById('output').textContent;
+  
   for await (const output of hf.textGenerationStream({model, inputs: prompt, parameters: {temperature:temperature,top_p:top_p,repetition_penalty:repetition_penalty, top_k: top_k, truncate: truncate, max_new_tokens: max_new_tokens}, {use_cache: false})) {
       result += output.token.text;
-    }
-}
+  }
+})
