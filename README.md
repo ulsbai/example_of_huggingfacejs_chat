@@ -1,3 +1,5 @@
+# **KNOWN ISSUE** 'source' in chat.html must be changed to 'src'
+
 # huggingface_chat
 
 In this repository I have created an interface for the huggingfacejs chat module. You can run it at the following link:
