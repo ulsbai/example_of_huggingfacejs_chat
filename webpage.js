@@ -25,7 +25,7 @@ document.getElementById('construct_HfInference').addEventListener('click', funct
   hf = new n(document.getElementById('token').value.trim() || undefined); // n exported as HfInference
 })
 
-document.getElementById('launch').addEventListener('click', function()
+document.getElementById('launch').addEventListener('click', async function()
 {
   result = document.getElementById('output').textContent;
   
