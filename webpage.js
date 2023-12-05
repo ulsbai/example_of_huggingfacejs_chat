@@ -18,7 +18,7 @@ const top_k = 50;
 const truncate = 1024;
 const max_new_tokens = 2000;
 
-const hf = null;
+let hf = null;
 
 window.addEventListener('load', function(){
   document.getElementById('construct_HfInference').addEventListener('click', function()
