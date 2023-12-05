@@ -29,7 +29,7 @@ document.getElementById('launch').addEventListener('click', async function()
 {
   result = document.getElementById('output').textContent;
   
-  for await (output of hf.textGenerationStream({model, inputs: prompt, parameters: {temperature:temperature,top_p:top_p,repetition_penalty:repetition_penalty, top_k: top_k, truncate: truncate, max_new_tokens: max_new_tokens}, {use_cache: false})) {
+  for await (output of hf.textGenerationStream({model, inputs: prompt, parameters: {temperature:temperature,top_p:top_p,repetition_penalty:repetition_penalty, top_k: top_k, truncate: truncate, max_new_tokens: max_new_tokens}}, {use_cache: false})) {
       result += output.token.text;
   }
 })
