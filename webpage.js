@@ -24,6 +24,7 @@ window.addEventListener('load', function(){
   document.getElementById('construct_HfInference').addEventListener('click', function()
   {
     hf = new n(document.getElementById('token').value.trim() || undefined); // n exported as HfInference
+    alert('Constructed HfInference')
   })
   
   document.getElementById('launch').addEventListener('click', async function()
@@ -32,6 +33,7 @@ window.addEventListener('load', function(){
     
     for await (output of hf.textGenerationStream({model, inputs: document.getElementById('prompt').value, parameters: {temperature:temperature,top_p:top_p,repetition_penalty:repetition_penalty, top_k: top_k, truncate: truncate, max_new_tokens: max_new_tokens}}, {use_cache: false})) {
         result += output.token.text;
+        alert('generated token:' + output.token.text)
     }
   })
 })
